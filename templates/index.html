@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>GAN-picture-Lens</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../static/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../static/css/noscript.css" />
+	</noscript>
+	<style>
+		.filebox label,
+		input[type="submit"] {
+			display: inline-block;
+			padding: .4em .55em;
+			color: #999;
+			font-size: inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #fdfdfd;
+			cursor: pointer;
+			border: 1px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			border-radius: .15em;
+			margin: 0;
+			margin-right: .07em;
+		}
+
+		.filebox .upload-name {
+			display: inline-block;
+			padding: .5em .75em;
+			/* label의 패딩값과 일치 */
+			font-size: inherit;
+			font-family: inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #f5f5f5;
+			border: 1px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			border-radius: .25em;
+			-webkit-appearance: none;
+			/* 네이티브 외형 감추기 */
+			-moz-appearance: none;
+			appearance: none;
+			margin-bottom: .2em;
+		}
+
+
+		.filebox input[type="file"] {
+			/* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
+	</style>
+</head>
+
+<body class="is-preload-0 is-preload-1 is-preload-2">
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Header -->
+		<header id="header">
+			<h1>GAN-Unmasking</h1>
+			<p>Share your wonderful experience without Mask </p>
+			<form action="/fileUpload" method="POST" enctype="multipart/form-data">
+				<div class='filebox'>
+					<input class="upload-name" value="file name" disabled="disabled">
+					<label for='upfile'>upload</label>
+					<input id="upfile" type="file" name="file" accept="image/*" class="upload-hidden" multiple />
+					<input id="submit" type="submit" value='submit' />
+				</div>
+			</form>
+
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+		</header>
+
+		<!-- Thumbnail -->
+		<section id="thumbnails">
+			<article>
+				<a class="thumbnail" href="../static/fulls/01.jpg" data-position="left center"><img
+						src="../static/thumbs/01.jpg" alt="" /></a>
+				<h2>Diam tempus accumsan</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/02.jpg"><img src="../static/thumbs/02.jpg" alt="" /></a>
+				<h2>Vivamus convallis libero</h2>
+				<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/03.jpg" data-position="top center"><img
+						src="../static/thumbs/03.jpg" alt="" /></a>
+				<h2>Nec accumsan enim felis</h2>
+				<p>Maecenas eleifend tellus ut turpis eleifend, vitae pretium faucibus.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/04.jpg"><img src="../static/thumbs/04.jpg" alt="" /></a>
+				<h2>Donec maximus nisi eget</h2>
+				<p>Tristique in nulla vel congue. Sed sociis natoque parturient nascetur.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/05.jpg" data-position="top center"><img
+						src="../static/thumbs/05.jpg" alt="" /></a>
+				<h2>Nullam vitae nunc vulputate</h2>
+				<p>In pellentesque cursus velit id posuere. Donec vehicula nulla.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/06.jpg"><img src="../static/thumbs/06.jpg" alt="" /></a>
+				<h2>Phasellus magna faucibus</h2>
+				<p>Nulla dignissim libero maximus tellus varius dictum ut posuere magna.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/07.jpg"><img src="../static/thumbs/07.jpg" alt="" /></a>
+				<h2>Proin quis mauris</h2>
+				<p>Etiam ultricies, lorem quis efficitur porttitor, facilisis ante orci urna.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/08.jpg"><img src="../static/thumbs/08.jpg" alt="" /></a>
+				<h2>Gravida quis varius enim</h2>
+				<p>Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/09.jpg"><img src="../static/thumbs/09.jpg" alt="" /></a>
+				<h2>Morbi eget vitae adipiscing</h2>
+				<p>In quis vulputate dui. Maecenas metus elit, dictum praesent lacinia lacus.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/10.jpg"><img src="../static/thumbs/10.jpg" alt="" /></a>
+				<h2>Habitant tristique senectus</h2>
+				<p>Vestibulum ante ipsum primis in faucibus orci luctus ac tincidunt dolor.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/11.jpg"><img src="../static/thumbs/11.jpg" alt="" /></a>
+				<h2>Pharetra ex non faucibus</h2>
+				<p>Ut sed magna euismod leo laoreet congue. Fusce congue enim ultricies.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/fulls/12.jpg"><img src="../static/thumbs/12.jpg" alt="" /></a>
+				<h2>Mattis lorem sodales</h2>
+				<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
+			</article>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+			</ul>
+		</footer>
+
+
+		<!-- Scripts -->
+		<script src="../static/js/jquery.min.js"></script>
+		<script src="../static/js/browser.min.js"></script>
+		<script src="../static/js/breakpoints.min.js"></script>
+		<script src="../static/js/main.js"></script>
+
+</body>
+<script>
+	$(document).ready(function () {
+		var fileTarget = $('.filebox .upload-hidden');
+		fileTarget.on('change', function () { // 값이 변경되면 
+			if (window.FileReader) { // modern browser 
+				var filename = $(this)[0].files[0].name;
+			} else { // old IE 
+				var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
+			}
+
+			// 추출한 파일명 삽입 
+			$(this).siblings('.upload-name').val(filename);
+		});
+	});
+
+
+	// $.ajax({
+	// 	type: "GET",
+	// 	url: "/students",
+	// 	data: {},
+	// 	success: function (res) {
+	// 		for (let i = 0; i < res.length; i++) {
+	// 			let student = res[i];
+	// 			$("#lst").append(
+	// 				"<li>" + student['name'] + ", 국어:" + student['ko'] + ", 수학:" + student['ma'] + ", 영어:" + student['en'] + "</li>"
+	// 			)
+	// 		}
+	// 	}
+	// })
+	// function sort_lst() {
+	// 	let radio = $('input:radio[name="btn_radio"]:checked').val();
+	// 	$.ajax({
+	// 		type: "GET",
+	// 		url: "/studentSort",
+	// 		data: {},
+	// 		success: function (res) {
+	// 			$("#lst").empty();
+	// 			if (radio === "ko") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.ko - a.ko;
+	// 				});
+	// 			} else if (radio === "ma") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.ma - a.ma;
+	// 				});
+	// 			} else if (radio === "en") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.en - a.en;
+	// 				});
+	// 			}
+	// 			for (let i = 0; i < res.length; i++) {
+	// 				let student = res[i];
+	// 				$("#lst").append(
+	// 					"<li>" + student['name'] + ", 국어:" + student['ko'] + ", 수학:" + student['ma'] + ", 영어:" + student['en'] + "</li>"
+	// 				)
+	// 			}
+	// 		}
+	// 	})
+	// }
+	// function add_row() {
+	// 	let name = $("#name").val();
+	// 	let ko = $("#ko").val();
+	// 	let ma = $("#ma").val();
+	// 	let en = $("#en").val();
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name,
+	// 			ko: ko,
+	// 			ma: ma,
+	// 			en: en
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+	// function del_row() {
+	// 	let name = $("#name").val();
+	// 	$.ajax({
+	// 		type: "DELETE",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+	// function upd_row() {
+	// 	let name = $("#name").val();
+	// 	let ko = $("#ko").val();
+	// 	let ma = $("#ma").val();
+	// 	let en = $("#en").val();
+	// 	$.ajax({
+	// 		type: "PUT",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name,
+	// 			ko: ko,
+	// 			ma: ma,
+	// 			en: en
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+</script>
+
+</html>

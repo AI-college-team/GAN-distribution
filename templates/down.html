@@ -1,0 +1,212 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>GAN-picture-Lens</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../static/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../static/css/noscript.css" />
+	</noscript>
+	<style>
+		.filebox label,
+		input[type="submit"] {
+			display: inline-block;
+			padding: .4em .55em;
+			color: #999;
+			font-size: inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #fdfdfd;
+			cursor: pointer;
+			border: 1px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			border-radius: .15em;
+			margin: 0;
+			margin-right: .07em;
+		}
+
+		.filebox .upload-name {
+			display: inline-block;
+			padding: .5em .75em;
+			/* label의 패딩값과 일치 */
+			font-size: inherit;
+			font-family: inherit;
+			line-height: normal;
+			vertical-align: middle;
+			background-color: #f5f5f5;
+			border: 1px solid #ebebeb;
+			border-bottom-color: #e2e2e2;
+			border-radius: .25em;
+			-webkit-appearance: none;
+			/* 네이티브 외형 감추기 */
+			-moz-appearance: none;
+			appearance: none;
+			margin-bottom: .2em;
+		}
+
+
+		.filebox input[type="file"] {
+			/* 파일 필드 숨기기 */
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+		}
+	</style>
+</head>
+
+<body class="is-preload-0 is-preload-1 is-preload-2">
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Header -->
+		<header id="header">
+			<h1>GAN-Unmasking</h1>
+			<p>Share your wonderful experience without Mask </p>
+			
+			<div class='filebox'>
+				<a href="/download/" target="blank"><label>download</label></a>
+			</div>
+
+			
+		</header>
+
+		<!-- Thumbnail -->
+		<section id="thumbnails">
+			<article>
+				<a class="thumbnail" href="../static/temp/01.jpg" data-position="left center"><img
+						src="../static/temp/01.jpg" alt="before" /></a>
+				<h2>The picture before</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</article>
+			<article>
+				<a class="thumbnail" href="../static/temp/02.jpg"><img src="../static/temp/02.jpg" alt="after" /></a>
+				<h2>The picture after</h2>
+				<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
+			</article>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="copyright">
+				<li>&copy; Untitled.</li>
+				<li>Design: Team-???.</li>
+			</ul>
+		</footer>
+
+
+		<!-- Scripts -->
+		<script src="../static/js/jquery.min.js"></script>
+		<script src="../static/js/browser.min.js"></script>
+		<script src="../static/js/breakpoints.min.js"></script>
+		<script src="../static/js/main.js"></script>
+
+</body>
+<script>
+
+
+
+	// $.ajax({
+	// 	type: "GET",
+	// 	url: "/students",
+	// 	data: {},
+	// 	success: function (res) {
+	// 		for (let i = 0; i < res.length; i++) {
+	// 			let student = res[i];
+	// 			$("#lst").append(
+	// 				"<li>" + student['name'] + ", 국어:" + student['ko'] + ", 수학:" + student['ma'] + ", 영어:" + student['en'] + "</li>"
+	// 			)
+	// 		}
+	// 	}
+	// })
+	// function sort_lst() {
+	// 	let radio = $('input:radio[name="btn_radio"]:checked').val();
+	// 	$.ajax({
+	// 		type: "GET",
+	// 		url: "/studentSort",
+	// 		data: {},
+	// 		success: function (res) {
+	// 			$("#lst").empty();
+	// 			if (radio === "ko") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.ko - a.ko;
+	// 				});
+	// 			} else if (radio === "ma") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.ma - a.ma;
+	// 				});
+	// 			} else if (radio === "en") {
+	// 				res = res.sort(function (a, b) {
+	// 					return b.en - a.en;
+	// 				});
+	// 			}
+	// 			for (let i = 0; i < res.length; i++) {
+	// 				let student = res[i];
+	// 				$("#lst").append(
+	// 					"<li>" + student['name'] + ", 국어:" + student['ko'] + ", 수학:" + student['ma'] + ", 영어:" + student['en'] + "</li>"
+	// 				)
+	// 			}
+	// 		}
+	// 	})
+	// }
+	// function add_row() {
+	// 	let name = $("#name").val();
+	// 	let ko = $("#ko").val();
+	// 	let ma = $("#ma").val();
+	// 	let en = $("#en").val();
+	// 	$.ajax({
+	// 		type: "POST",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name,
+	// 			ko: ko,
+	// 			ma: ma,
+	// 			en: en
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+	// function del_row() {
+	// 	let name = $("#name").val();
+	// 	$.ajax({
+	// 		type: "DELETE",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+	// function upd_row() {
+	// 	let name = $("#name").val();
+	// 	let ko = $("#ko").val();
+	// 	let ma = $("#ma").val();
+	// 	let en = $("#en").val();
+	// 	$.ajax({
+	// 		type: "PUT",
+	// 		url: "/student",
+	// 		data: {
+	// 			name: name,
+	// 			ko: ko,
+	// 			ma: ma,
+	// 			en: en
+	// 		},
+	// 		success: function (responses) {
+	// 			window.location.reload();
+	// 		}
+	// 	})
+	// }
+</script>
+
+</html>
