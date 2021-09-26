@@ -45,8 +45,6 @@ class Detector(nn.Module):
         self.out_dim = out_dim
         self.num_filter = num_filter
 
-        print("\n------Initiating Detector------\n")
-
         self.down_1 = conv_block1_1(self.in_dim, self.num_filter)
         self.pool_1 = maxpool()
         self.down_1 = conv_block1_2(self.in_dim, self.num_filter)
