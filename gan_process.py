@@ -81,7 +81,7 @@ def goGan():
                                     transforms.Grayscale(num_output_channels=1)])  # 토치 텐서로 변환
     # image 불러오는 함수
     def image_loader_color(image):
-        image = cv2.resize(image, (128, 128))
+        image = cv2.resize(image, (160, 160))
         image = loader_color(image).unsqueeze(0)
         return image
 
