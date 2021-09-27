@@ -10,8 +10,9 @@
 		<link rel="stylesheet" href="../static/css/noscript.css" />
 	</noscript>
 	<link rel="stylesheet" href="../static/css/loading.css" />
+	
 	<style>
-		/* 파일박스 css */
+		
 		.filebox label,
 		input[type="submit"] {
 			display: inline-block;
@@ -29,7 +30,7 @@
 			margin-right: .07em;
 		}
 
-		.filebox .upload-name {
+		.filebox .upload-name, .upload-name2  {
 			display: inline-block;
 			padding: .5em .75em;
 			/* label의 패딩값과 일치 */
@@ -46,7 +47,10 @@
 			-moz-appearance: none;
 			appearance: none;
 			margin-bottom: .2em;
+			margin-top: .2em;
 		}
+
+
 
 		.filebox input[type="file"] {
 			/* 파일 필드 숨기기 */
@@ -60,10 +64,6 @@
 			border: 0;
 		}
 
-		/* ### 진행바 ### */
-		
-		
-
 	</style>
 </head>
 
@@ -75,18 +75,24 @@
 		<!-- Header -->
 		<header id="header">
 			<h1>GAN-Unmasking</h1>
-			<h2>For special Gan face</h2>
+			<h2>For my own face</h2>
 			<p>Share your wonderful experience without Mask </p>
-			<form action="/fileUpload" method="POST" enctype="multipart/form-data">
+			<form action="/multifileUpload" method="POST" enctype="multipart/form-data">
 				<div class='filebox'>
 					<input class="upload-name" value="file name" disabled="disabled">
-					<label for='upfile'>upload</label>
-					<input id="upfile" type="file" name="file" accept="image/*" class="upload-hidden" />
+					<label for='upfile'>masked</label>
+					<input id="upfile" type="file" name="file_m" accept="image/*" class="upload-hidden" multiple="multiple" />
+
+					<input class="upload-name2" value="file name" disabled="disabled">
+					<label for='upfile2'>unmasked</label>
+					<input id="upfile2" type="file" name="file_um" accept="image/*" class="upload-hidden2" />
+					
 					<br>
 					<input id="submit" type="submit" value='submit' style="margin-top: .5em;" />
-					<label for='index' onClick="window.location.href='/swap'" style="margin-top: .5em;">myface</label>
+					<label for='index' onClick="window.location.href='/'" style="margin-top: .5em;">Ganface</label>
 				</div>
 			</form>
+
 			<div class="progress">
 				<div class="center">
 					<div class="wave"></div>
@@ -155,26 +161,7 @@
 				<h2>Gravida quis varius enim</h2>
 				<p>Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.</p>
 			</article>
-			<article>
-				<a class="thumbnail" href="../static/fulls/09.jpg"><img src="../static/thumbs/09.jpg" alt="" /></a>
-				<h2>Morbi eget vitae adipiscing</h2>
-				<p>In quis vulputate dui. Maecenas metus elit, dictum praesent lacinia lacus.</p>
-			</article>
-			<article>
-				<a class="thumbnail" href="../static/fulls/10.jpg"><img src="../static/thumbs/10.jpg" alt="" /></a>
-				<h2>Habitant tristique senectus</h2>
-				<p>Vestibulum ante ipsum primis in faucibus orci luctus ac tincidunt dolor.</p>
-			</article>
-			<article>
-				<a class="thumbnail" href="../static/fulls/11.jpg"><img src="../static/thumbs/11.jpg" alt="" /></a>
-				<h2>Pharetra ex non faucibus</h2>
-				<p>Ut sed magna euismod leo laoreet congue. Fusce congue enim ultricies.</p>
-			</article>
-			<article>
-				<a class="thumbnail" href="../static/fulls/12.jpg"><img src="../static/thumbs/12.jpg" alt="" /></a>
-				<h2>Mattis lorem sodales</h2>
-				<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
-			</article>
+			
 		</section>
 
 		<!-- Footer -->
@@ -195,7 +182,7 @@
 </body>
 <script>
 	$(document).ready(function () {
-		var fileTarget = $('.filebox .upload-hidden');
+		var fileTarget = $('.upload-hidden');
 		fileTarget.on('change', function () { // 값이 변경되면 
 			if (window.FileReader) { // modern browser 
 				var filename = $(this)[0].files[0].name;
@@ -203,10 +190,23 @@
 				var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
 			}
 
+			// 추출한 파일명 삽입
+			$('.upload-name').val(filename);
+		});
+
+		var fileTarget2 = $('.upload-hidden2');
+		fileTarget2.on('change', function () { // 값이 변경되면 
+			if (window.FileReader) { // modern browser 
+				var filename = $(this)[0].files[0].name;
+			} else { // old IE 
+				var filename = $(this).val().split('/').pop().split('\\').pop(); // 파일명만 추출 
+			}
+
 			// 추출한 파일명 삽입 
-			$(this).siblings('.upload-name').val(filename);
+			$('.upload-name2').val(filename)
 		});
 	});
+
 	$('#submit').click(function() {
 		$('.progress').css({
 			'display': 'block'
